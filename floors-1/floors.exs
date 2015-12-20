@@ -1,7 +1,7 @@
 defmodule Floors do
 	def load(file) do
 		{:ok, body} = File.read(file)
-		body
+		String.codepoints(body)
 	end
 
 	def val("(") do
@@ -41,7 +41,6 @@ defmodule Floors do
 	end
 end
 
-data = Floors.load("data.txt")
-list = String.codepoints(data)
+list = Floors.load("data.txt")
 IO.puts "Result: #{Floors.count(list)}"
 IO.puts "Result2: #{Floors.find_first_negative(list)}"
